@@ -16,8 +16,8 @@ weather = observation.get_weather()
 temperatures = weather.get_temperature('fahrenheit')
 current_temperature = temperatures.get('temp')
 stringTemperature = str(current_temperature)
-x = 'Current temperature is', stringTemperature,'degrees F. Looks like no coat today.'
+new_status = 'Current temperature is ' + stringTemperature + ' degrees F. Looks like no coat today.'
 
 # tweet the current temperature
-status = api.PostUpdate(x)
+status = api.PostUpdate(status = new_status)
 print(status.text)
