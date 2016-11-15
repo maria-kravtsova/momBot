@@ -10,6 +10,6 @@ momBot: Don't forget the umbrella! It's going to be 50 and raining all day.
 momBot: Apartment is nice and toasty, it's t-shirt and shorts time.
 
 To Do:
- - Setup Twitter API
- - Setup Open Weather Map
- - Set the tweets
+- Create tweets for different weather conditions
+- Add the temperatures at home
+- Make it run at 5am, noon, 5pm 
