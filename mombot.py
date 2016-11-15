@@ -1,11 +1,12 @@
 import twitter
 import pyowm
+from auth import *
 
 # Twitter API keys for @MomBot13 user
-api = twitter.Api(consumer_key='56cMPfOsNJY1fiNPXb8V22kzc',
-                  consumer_secret='PNdmAqKjHP4Ph1duqEqwfnSVXp38qPYbUAxGQz3LrNoj1kZNxk',
-                  access_token_key='796893994944970752-fkDDzlJnT7SpB4ntWPEqhrrzzCFQuXe',
-                  access_token_secret='0FfQ0R6UWAMt2sYIiilX2W18h5tZ0u2QNFYGbFj2wf5cl')
+api = twitter.Api(consumer_key=consumer_key,
+                  consumer_secret=consumer_secret,
+                  access_token_key=access_token_key,
+                  access_token_secret=access_token_secret)
 
 # openweathermap.org API key
 owm = pyowm.OWM('e8682fe7558aa979da504ee6e497460b')
