@@ -13,7 +13,7 @@ owm = pyowm.OWM(weather_key)
 
 fc = owm.three_hours_forecast('Kalamazoo, US')
 f = fc.get_forecast()
-print(f.get_weathers())
+# print(f.get_weathers())
 
 # get observation forecast for today in Kalamazoo, MI
 observation = owm.weather_at_place('Kalamazoo, US')
@@ -22,19 +22,26 @@ weather = observation.get_weather()
 # temperature outside.
 temperatures = weather.get_temperature('fahrenheit')
 current_temperature = temperatures.get('temp')
-stringTemperature = str(current_temperature)
+stringTemperature = str(current_temperature) + 'F'
 
-# snow
-snow = weather.get_snow()
-print(snow)
+status = weather.get_status()
 
+if (status == 'Rain'):
+    precipitation = 'Rainy... grab an umbrella too. '
+elif (status == 'Snow'):
+    precipitation = 'May the hat and gloves be with you.'
+else:
+    precipitation = ''
 
-# rain
-rain = weather.get_rain()
-print(rain)
-
-new_status = 'Current temperature is ' + stringTemperature + ' degrees F.'
+if (current_temperature > 70):
+    new_status = 'Hot and sweaty at ' + stringTemperature + '. ' + precipitation
+elif (70 >= current_temperature >= 60):
+    new_status = 'Enjoy the perfect weather at - ' + stringTemperature + precipitation
+elif (20 <= current_temperature < 45):
+    new_status = 'May the coat, hat and gloves be with you. ' + precipitation + stringTemperature
+else:
+    new_status = 'It is better to stay inside and drink hot baverages. Temperature is at ' + stringTemperature
 
 # tweet the current temperature
-# status = api.PostUpdate(status = new_status)
-# print(status.text)
+status = api.PostUpdate(status = new_status)
+print(status.text)
