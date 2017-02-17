@@ -1,3 +1,4 @@
+#!/usr/bin/env python
 import twitter
 import pyowm
 from auth import *
@@ -13,7 +14,6 @@ owm = pyowm.OWM(weather_key)
 
 fc = owm.three_hours_forecast('Kalamazoo, US')
 f = fc.get_forecast()
-# print(f.get_weathers())
 
 # get observation forecast for today in Kalamazoo, MI
 observation = owm.weather_at_place('Kalamazoo, US')
